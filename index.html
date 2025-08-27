@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/styleForm.css">
+        <title>Your Library</title>
+    </head>
+    <body class="main">
+        <h1 class="main-h1">Your Library</h1>
+        <h2 class="main-h2">Where every book hides a secret waiting to be found</h2>
+
+        <button onclick="showLoginForm()">
+            Login
+        </button>
+
+        <div id="login-form">
+            <form id="authorized-form">
+                <label for="username">
+                    Username
+                </label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">
+                    Password
+                </label>
+                <input type="password" id="password" name="password" required>
+
+                <div id="access-denied" style="display: none;">
+                    <p class="main-p1">Please provide valid credentials.</p>
+                </div>
+
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+        </div>
+
+        <script>
+            function showLoginForm()
+            {
+                document.getElementById("login-form").style.display = "block";
+            }
+
+            document.getElementById("authorized-form").addEventListener("submit", function(event)
+            {
+                event.preventDefault();
+
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+
+                if(username === "admin" && password === "1ias.#3HW+mLPzaQ")
+            {
+                window.location.href="pages/mainPage.html";
+            }
+            else
+            {
+                document.getElementById("access-denied").style.display="block";
+            }
+            });
+        </script>
+    </body>
+</html>
